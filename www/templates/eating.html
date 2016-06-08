@@ -1,0 +1,37 @@
+<ion-view view-title="Eating Register">
+  <ion-content>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio1" ng-model="behaviour.what" value="breakfast" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-coffee" aria-hidden="true"></i><p style="font-size:10px">Breakfast</p></ion-radio>
+      <ion-radio name="radio1" ng-model="behaviour.what" value="lunch" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-cutlery" aria-hidden="true"></i><p style="font-size:10px">Lunch</p></ion-radio>
+      <ion-radio name="radio1" ng-model="behaviour.what" value="dinner" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-moon-o" aria-hidden="true"></i><p style="font-size:10px">Dinner</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio2" ng-model="behaviour.who" value="father" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-male" aria-hidden="true"></i><p style="font-size:10px">Father</p></ion-radio>
+      <ion-radio name="radio2" ng-model="behaviour.who" value="mother" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-female" aria-hidden="true"></i><p style="font-size:10px">Mother</p></ion-radio>
+      <ion-radio name="radio2" ng-model="behaviour.who" value="other" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-question" aria-hidden="true"></i><p style="font-size:10px">Other</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio3" ng-model="behaviour.where" value='home' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-home" aria-hidden="true"></i><p style="font-size:10px">Home</p></ion-radio>
+      <ion-radio name="radio3" ng-model="behaviour.where" value='school' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-graduation-cap" aria-hidden="true"></i><p style="font-size:10px">School</p></ion-radio>
+      <ion-radio name="radio3" ng-model="behaviour.where" value='outside' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-tree" aria-hidden="true"></i><p style="font-size:10px">Outside</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio4" ng-model="behaviour.quantity" value='nill' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-battery-empty" aria-hidden="true"></i><p style="font-size:10px">Nill</p></ion-radio>
+      <ion-radio name="radio4" ng-model="behaviour.quantity" value='few' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-battery-half" aria-hidden="true"></i><p style="font-size:10px">Few</p></ion-radio>
+      <ion-radio name="radio4" ng-model="behaviour.quantity" value='all' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-battery-full" aria-hidden="true"></i><p style="font-size:10px">All</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio5" ng-model="behaviour.mood" value='sad' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-frown-o" aria-hidden="true"></i><p style="font-size:10px">Sad</p></ion-radio>
+      <ion-radio name="radio5" ng-model="behaviour.mood" value='neutral' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-meh-o" aria-hidden="true"></i><p style="font-size:10px">Neutral</p></ion-radio>
+      <ion-radio name="radio6" ng-model="behaviour.mood" value='happy' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-smile-o" aria-hidden="true"></i><p style="font-size:10px">Happy</p></ion-radio>
+    </div>
+    <div class="item item-input-inset">
+      <input type="date" ng-model="behaviour.date" style="height:100px;width:65%;font-size:20px">
+      <input type="time" ng-model="behaviour.date" step="60" style="height:100px;width:35%;font-size:20px">
+    </div>
+    <div class="button-bar">
+      <a class="button button-assertive" ng-click="goBack()" style="height:100px;font-size:50px;text-align: center;line-height:100px"><i class="fa fa-remove" aria-hidden="true"></i></a>
+      <a class="button button-balanced"  ng-click="insertBehaviour()" style="height:100px;font-size:50px;text-align: center;line-height:100px"><i class="fa fa-check" aria-hidden="true"></i></a>
+    </div>
+  </ion-content>
+</ion-view>

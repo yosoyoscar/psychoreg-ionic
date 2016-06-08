@@ -1,0 +1,20 @@
+<ion-view view-title="Add Child">
+	<ion-content>
+		<div class="card">
+		  <div class="item item-text-wrap">
+		    <strong>Write down the token provided by your psychologist. This will add your child to the app.</strong>
+		  </div>
+		</div>
+		<form>
+	      <div class="list">
+	        <label class="item item-input">
+	          <span class="input-label">Token</span>
+	          <input type="text" ng-model="newToken" />
+	        </label>
+	        <label class="item">
+	          <button class="button button-block button-positive" ng-click="addChild(newToken)">Add</button>
+	        </label>
+	      </div>
+	    </form>
+	</ion-content>
+</ion-view>

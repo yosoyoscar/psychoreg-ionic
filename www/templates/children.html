@@ -1,0 +1,12 @@
+<ion-view view-title="Children">
+  <ion-content>
+  	<p ng-show="showMessage" align="center"><br>{{message}}</p>
+    <ion-list>
+      <ion-item ng-repeat="child in children" href="#/app/behaviours/{{child.id}}" class="item-thumbnail-left">
+        <img ng-src="{{baseURL}}images/{{child.sex}}.png">
+        <h2>{{child.firstName}} {{child.lastName}}
+        <p>{{child.disorder}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="Sleep Register">
+  <ion-content>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio3" ng-model="behaviour.what" value="wakeup" style="height:100px;width:50%;font-size:45px"><i class="fa fa-eye" aria-hidden="true"></i><p style="font-size:10px">Wake Up</p></ion-radio>
+      <ion-radio name="radio3" ng-model="behaviour.what" value="sleep" style="height:100px;width:50%;font-size:45px"><i class="fa fa-eye-slash" aria-hidden="true"></i><p style="font-size:10px">Sleep</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio1" ng-model="behaviour.who" value="father" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-male" aria-hidden="true"></i><p style="font-size:10px">Father</p></ion-radio>
+      <ion-radio name="radio1" ng-model="behaviour.who" value="mother" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-female" aria-hidden="true"></i><p style="font-size:10px">Mother</p></ion-radio>
+      <ion-radio name="radio1" ng-model="behaviour.who" value="other" style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-question" aria-hidden="true"></i><p style="font-size:10px">Other</p></ion-radio>
+    </div>
+    <div class="button-bar" align="center">
+      <ion-radio name="radio2" ng-model="behaviour.mood" value='sad' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-frown-o" aria-hidden="true"></i><p style="font-size:10px">Sad</p></ion-radio>
+      <ion-radio name="radio2" ng-model="behaviour.mood" value='neutral' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-meh-o" aria-hidden="true"></i><p style="font-size:10px">Neutral</p></ion-radio>
+      <ion-radio name="radio2" ng-model="behaviour.mood" value='happy' style="height:100px;width:33.5%;font-size:45px"><i class="fa fa-smile-o" aria-hidden="true"></i><p style="font-size:10px">Happy</p></ion-radio>
+    </div>
+    <div class="item item-input-inset">
+      <input type="date" ng-model="behaviour.date" style="height:100px;width:65%;font-size:20px">
+      <input type="time" ng-model="behaviour.date" step="60" style="height:100px;width:35%;font-size:20px">
+    </div>
+    <div class="button-bar">
+      <a class="button button-assertive" ng-click="goBack()" style="height:100px;font-size:50px;text-align: center;line-height:100px"><i class="fa fa-remove" aria-hidden="true"></i></a>
+      <a class="button button-balanced"  ng-click="insertBehaviour()" style="height:100px;font-size:50px;text-align: center;line-height:100px"><i class="fa fa-check" aria-hidden="true"></i></a>
+    </div>
+  </ion-content>
+</ion-view>

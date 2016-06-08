@@ -1,0 +1,14 @@
+<ion-view view-title="Children">
+  <ion-content>
+      <ul class="list list-inset">
+        <li class="item item-divider">
+            <h2>Your children</h2>
+        </li>
+        <li class="item item-avatar item-text-wrap" ng-repeat="child in children">
+            <img ng-src="{{baseURL + child.image}}" alt="{{child.firstName}}">
+            <h3>{{child.firstName}} {{child.lastName}}<h3>
+            <h4>{{child.disorder}}</h4>
+        </li>
+    </ul>
+  </ion-content>
+</ion-view>

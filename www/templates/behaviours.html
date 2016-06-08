@@ -1,0 +1,42 @@
+<ion-view view-title="Behaviour List">
+	<ion-nav-buttons side="secondary">
+		<div class="buttons">
+			<button class="button button-icon icon ion-plus" ng-click="addBehaviour()"></button>
+		</div>
+	</ion-nav-buttons>
+	<ion-content>
+	<div class="card">
+		<div class="item item-text-wrap">
+		    <strong>{{child.firstName}} {{child.lastName}}</strong>
+		</div>
+	</div>
+	<ion-list>
+      <ion-item ng-repeat="behaviour in child.behaviours | orderBy:'-date'">
+			<div class="row">
+		      <div class="col col-40">{{behaviour.date | date:'yyyy-MM-dd HH:mm'}}</div>
+			  <div class="col col-20">{{behaviour.what}}</div>
+
+			  <div class="col col-8" ng-if="behaviour.where == 'home'"><i class="fa fa-home" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.where == 'school'"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.where == 'outside'"><i class="fa fa-tree" aria-hidden="true"></i></div>
+
+			  <div class="col col-8" ng-if="behaviour.who == 'father'"><i class="fa fa-male" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.who == 'mother'"><i class="fa fa-female" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.who == 'other'"><i class="fa fa-question" aria-hidden="true"></i></div>
+
+			  <div class="col col-8" ng-if="behaviour.mood == 'sad'"><i class="fa fa-frown-o" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.mood == 'neutral'"><i class="fa fa-meh-o" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.mood == 'happy'"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
+
+			  <div class="col col-8" ng-if="behaviour.quantity == 'nill'"><i class="fa fa-battery-empty" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.quantity == 'few'"><i class="fa fa-battery-half" aria-hidden="true"></i></div>
+			  <div class="col col-8" ng-if="behaviour.quantity == 'all'"><i class="fa fa-battery-full" aria-hidden="true"></i></div>
+
+			  <button class="button button-assertive button-small" ng-click="deleteBehaviour(behaviour.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+			</div>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
