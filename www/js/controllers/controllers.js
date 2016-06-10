@@ -20,7 +20,7 @@ angular.module('psychoreg.controllers', [])
         $scope.loggedIn = true;
         $scope.username = AuthService.getUsername();
     }
-    else if ($scope.loginData){
+    else if ($scope.loginData && $scope.loginData.username && $scope.loginData.password){
         AuthService.login($scope.loginData);
     }
 
@@ -145,6 +145,7 @@ angular.module('psychoreg.controllers', [])
 
     $scope.baseURL = baseURL;
     $scope.hasChildren = true;
+    $scope.firstTime = true;
 
     var loadChildren = function (){
         $scope.showMessage = true;
@@ -189,11 +190,13 @@ angular.module('psychoreg.controllers', [])
     };
 
     if (AuthService.getUsernameId()){
+        $scope.firstTime = false;
         loadChildren();
     };
 
     $rootScope.$on('login:Successful', function () {
         console.log('ChildrenController login received');
+        $scope.firstTime = false;
         loadChildren();
     });
 }])
