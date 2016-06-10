@@ -8,7 +8,7 @@ angular
   .factory('AuthService', ['Customer', '$q', '$rootScope', '$ionicPopup', 
     function(Customer, $q, $rootScope, $ionicPopup) {
     function login(loginData) {
-      console.log('Doing login', loginData);
+      console.log('AuthService-login-psychoreg-log-Doing login:' + JSON.stringify(loginData));
       return Customer
         .login(loginData)
         .$promise
@@ -36,10 +36,10 @@ angular
 
         },
         function(response){
-          console.log('psychoreg-log:' + JSON.stringify(response));
+          console.log('AuthService-login-psychoreg-log:' + JSON.stringify(response));
 
-              var message = '<div><p>' +  response.data.error.message + 
-                  '</p><p>' + response.data.error.name + '</p></div>';
+              var message = '<div><p>' +  response.status + 
+                  '</p><p>' + response.statusText + '</p></div>';
             
                var alertPopup = $ionicPopup.alert({
                     title: '<h4>Login Failed!</h4>',

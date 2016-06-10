@@ -10,6 +10,11 @@
 		    <strong>{{child.firstName}} {{child.lastName}}</strong>
 		</div>
 	</div>
+    <div class="card" align="center" ng-show="!hasBehaviuors">
+        <div class="item item-text-wrap">
+            <strong>No behaviours registered. Add one using the + icon on the top right corner.</strong>
+        </div>
+    </div>
 	<ion-list>
       <ion-item ng-repeat="behaviour in child.behaviours | orderBy:'-date'">
 			<div class="row">

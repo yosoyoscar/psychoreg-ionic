@@ -144,10 +144,12 @@ angular.module('psychoreg.controllers', [])
 .controller('ChildrenController', ['$scope', '$rootScope', 'AuthService', 'Customer', 'Child', 'baseURL', function ($scope, $rootScope, AuthService, Customer, Child, baseURL) {
 
     $scope.baseURL = baseURL;
-    $scope.showMessage = false;
-    $scope.children = [];
+    $scope.hasChildren = true;
 
     var loadChildren = function (){
+        $scope.showMessage = true;
+        $scope.message = 'Loading ...';
+        $scope.children = [];
         Customer.findById({id: AuthService.getUsernameId()})
         .$promise.then(
             function (response) {
@@ -162,18 +164,26 @@ angular.module('psychoreg.controllers', [])
                             $scope.children.push(response[i]);
                         }
                     }
-                    $scope.showChildren = true;
+                    if ($scope.children.length >= 1){
+                        $scope.hasChildren = true;
+                    }
+                    else{
+                        $scope.hasChildren = false;
+                    }
+                    $scope.showMessage = false;
                 },
                 function (response) {
                     $scope.message = "Error: " + response.status + " " + response.statusText;
                     if (response.status == 401){
-                        $scope.message = $scope.message + '. Please log in.';
+                        $scope.message = $scope.message + '. Please log in or register.';
                     }
+                    $scope.showMessage = true;
                 });
             },
             function (response) {
                 $scope.message = "Error: " + response.status + " " + response.statusText;
                 console.log('psychoreg-log:' + "Error: " + response.status + " " + response.statusText);
+                $scope.showMessage = true;
             }
         );
     };
@@ -190,17 +200,36 @@ angular.module('psychoreg.controllers', [])
 
 .controller('BehavioursController', ['$scope', 'Child', 'Behaviour', '$stateParams', '$location', function ($scope, Child, Behaviour, $stateParams, $location) {
 
+    $scope.hasBehaviuors = true;
     Child.findById({id: $stateParams.id})
         .$promise.then(
             function (response) {
                 $scope.child = response;
                 $scope.child.birthDate = new Date($scope.child.birthDate);
-                $scope.child.behaviours = Behaviour.find({ filter: { where: { childrenId: $stateParams.id } } });
+                //$scope.child.behaviours = Behaviour.find({ filter: { where: { childrenId: $stateParams.id } } })
+                getBehaviours();
             },
             function (response) {
-                $scope.message = "Error: " + response.status + " " + response.statusText;
+                console.log("Error: " + response.status + " " + response.statusText);
             }
         );
+    
+    getBehaviours = function() {
+        Behaviour.find({ filter: { where: { childrenId: $stateParams.id } } })
+        .$promise.then(
+        function (response) {
+            $scope.child.behaviours = response;
+            if ($scope.child.behaviours.length >= 1){
+                $scope.hasBehaviuors = true;
+            }
+            else{
+                $scope.hasBehaviuors = false;
+            }
+        },
+        function (response) {
+            console.log("Error: " + response.status + " " + response.statusText);
+        });
+    };
 
     $scope.addBehaviour = function() {
         if ($scope.child.disorder == 'Sleep'){
@@ -218,10 +247,11 @@ angular.module('psychoreg.controllers', [])
         Behaviour.destroyById({id: behaviourId})
         .$promise.then(
             function (response) {
-                $scope.child.behaviours = Behaviour.find({ filter: { where: { childrenId: $stateParams.id } } });
+                //$scope.child.behaviours = Behaviour.find({ filter: { where: { childrenId: $stateParams.id } } });
+                getBehaviours();
             },
             function (response) {
-                $scope.message = "Error: " + response.status + " " + response.statusText;
+                console.log("Error: " + response.status + " " + response.statusText);
             }
         );
     }
@@ -260,6 +290,7 @@ angular.module('psychoreg.controllers', [])
             },
             function (response) {
                 $scope.message = "Error: " + response.status + " " + response.statusText;
+                console.log('AddChildController-Error:' + JSON.stringify(response))
             }
         );
     }

@@ -1,6 +1,20 @@
 <ion-view view-title="Children">
   <ion-content>
-  	<p ng-show="showMessage" align="center"><br>{{message}}</p>
+    <div class="card" align="center" ng-show="showMessage">
+          <div class="item item-text-wrap">
+              <strong>{{message}}</strong>
+          </div>
+    </div>
+    <div class="card" align="center" ng-show="!hasChildren">
+          <div class="item item-text-wrap">
+              <strong>You have no child yet. Please add one in the Add Child menu using the token provided by your psyhologist.</strong>
+          </div>
+    </div>
+    <div class="card" align="center" ng-show="firstTime">
+          <div class="item item-text-wrap">
+              <strong>This seems to be your first time using</strong>
+          </div>
+    </div>
     <ion-list>
       <ion-item ng-repeat="child in children" href="#/app/behaviours/{{child.id}}" class="item-thumbnail-left">
         <img ng-src="{{baseURL}}images/{{child.sex}}.png">
